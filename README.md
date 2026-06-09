@@ -1,61 +1,75 @@
-# Ubuntu 26.04 Live ISO
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# ubuntu-26.04-iso
 
-Live bootable ISO for **Ubuntu 26.04 "Resolute Raccoon"** desktop, based on the
-[`ghcr.io/hanthor/ubuntu-26.04-desktop-bootc`](https://github.com/hanthor/ubuntu-26.04-desktop-bootc)
-bootc image. Uses the same [dakota-iso](https://github.com/tuna-os/dakota-iso)
-systemd-boot + dmsquash-live pipeline.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/ubuntu-26.04-iso)
 
-## What it is
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-- Boots to **GNOME 50** desktop with automatic login (`liveuser`)
-- **x86_64 UEFI only** — Secure Boot is not supported in v1
-- **Online install** — requires internet access to install to disk
+## Architecture
 
-## Download
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-```
-https://download.tunaos.org/ubuntu-26.04/ubuntu-26.04-live-latest.iso
-```
+## Install
 
-## Installing to disk
-
-Boot the ISO, open a terminal, and run:
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
 ```bash
-sudo bootc install to-disk \
-  --source-imgref ghcr.io/hanthor/ubuntu-26.04-desktop-bootc:latest \
-  /dev/sda
+git clone https://github.com/Interested-Deving-1896/ubuntu-26.04-iso.git
+cd ubuntu-26.04-iso
 ```
 
-Replace `/dev/sda` with your target drive. **This will erase the target drive.**
+## Usage
 
-## Building locally
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-```bash
-# Build the ISO (requires podman, just, mksquashfs, xorriso, mtools)
-just iso-sd-boot ubuntu-26.04
+## Configuration
 
-# Boot the ISO in QEMU (requires qemu-kvm, OVMF)
-just boot-iso-serial ubuntu-26.04
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/ubuntu-26.04-iso`](https://github.com/Interested-Deving-1896/ubuntu-26.04-iso) and mirrored through:
+
+```
+Interested-Deving-1896/ubuntu-26.04-iso  ──►  OpenOS-Project-OSP/ubuntu-26.04-iso  ──►  OpenOS-Project-Ecosystem-OOC/ubuntu-26.04-iso
 ```
 
-Build options:
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-| Variable | Default | Description |
-|---|---|---|
-| `output_dir` | `output` | Where to write the ISO |
-| `debug` | `0` | Set to `1` for SSH-enabled debug ISO |
-| `compression` | `fast` | `fast` (zstd/3) or `release` (zstd/15, ~20% smaller) |
+## Contributors
 
-## CI / R2 upload
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-GitHub Actions builds and uploads the ISO to Cloudflare R2 on every push to
-`main` and weekly on Mondays. Uses org-level secrets:
-`R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT`, `R2_BUCKET`.
+## Origins
 
-## Known limitations (v1)
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-- **Secure Boot:** unsigned systemd-boot — use non-secboot OVMF for testing
-- **Offline install:** not supported; install pulls image from GHCR
-- **USB boot:** tested via QEMU optical path only; USB mass-storage path untested
-- **Architecture:** x86_64 only
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
